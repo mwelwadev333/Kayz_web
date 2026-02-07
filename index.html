@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kayz Beauty Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Anime.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+  <style>
+    /* RESET & BASE */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: white;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #f9c5d1;
+      text-shadow: 2px 2px 10px rgba(249, 197, 209, 0.6);
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1rem;
+      color: #ccc;
+      font-style: italic;
+    }
+
+    /* GALLERY */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* CARD */
+    .card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 1rem;
+      padding: 1rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 1rem;
+      display: block;
+    }
+
+    .card p {
+      margin-top: 0.75rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #f9c5d1;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* HOVER EFFECTS */
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(249, 197, 209, 0.6);
+    }
+
+    /* RESPONSIVE IMAGE HEIGHT */
+    @media(max-width: 600px) {
+      .card img {
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Kayz Beauty Gallery</h1>
+    <p>A visual love letter to Kay 🌸</p>
+  </header>
+
+  <!-- GALLERY -->
+  <main class="gallery">
+    <div class="card">
+      <img src="kay1.jpg" alt="Kay 1">
+      <p>Your beauty is quiet, powerful, and unforgettable — just like your smile.</p>
+    </div>
+    <div class="card">
+      <img src="kay2.jpg" alt="Kay 2">
+      <p>Every glance of you feels like poetry written by the universe.</p>
+    </div>
+    <div class="card">
+      <img src="kay3.jpg" alt="Kay 3">
+      <p>You don’t just light up spaces — you transform them.</p>
+    </div>
+    <div class="card">
+      <img src="kay4.jpg" alt="Kay 4">
+      <p>Your presence feels like warmth, calm, and magic.</p>
+    </div>
+    <div class="card">
+      <img src="kay5.jpg" alt="Kay 5">
+      <p>You are elegance without effort, beauty without limits.</p>
+    </div>
+    <div class="card">
+      <img src="kay6.jpg" alt="Kay 6">
+      <p>Kay, you are proof that beauty is deeply felt.</p>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    Made with ❤️ just for Kay
+  </footer>
+
+  <!-- ANIME.JS ANIMATION -->
+  <script>
+    // Fade in cards with stagger
+    anime({
+      targets: '.card',
+      opacity: [0, 1],
+      translateY: [50, 0],
+      delay: anime.stagger(150),
+      duration: 1000,
+      easing: 'easeOutExpo'
+    });
+
+    // Optional hover animation via JS (anime.js)
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        anime({
+          targets: card,
+          scale: 1.05,
+          boxShadow: '0 15px 30px rgba(249,197,209,0.6)',
+          duration: 300,
+          easing: 'easeOutQuad'
+        });
+      });
+      card.addEventListener('mouseleave', () => {
+        anime({
+          targets: card,
+          scale: 1,
+          boxShadow: '0 10px 20px rgba(0,0,0,0.5)',
+          duration: 300,
+          easing: 'easeOutQuad'
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
+
+
+
